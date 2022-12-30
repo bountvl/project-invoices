@@ -30,6 +30,11 @@ const routes = [
     path: '/currency',
     name: 'currency',
     component: () => import('../views/CurrencyView.vue')
+  },  
+  {
+    path: '/company',
+    name: 'company',
+    component: () => import('../views/CompanyView.vue')
   }
 ]
 
