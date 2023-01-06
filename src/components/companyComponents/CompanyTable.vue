@@ -6,7 +6,7 @@
             <a-input
               v-if="editableData[record.key]"
               v-model:value="editableData[record.key][column.dataIndex]"
-              style="margin: -5px 0"
+              style="margin: -5px 0;"
             />
             <template v-else>
               {{ text }}

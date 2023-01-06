@@ -1,10 +1,10 @@
 <template>
-  <v-app>
-    <!-- sidebar -->
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
+  <!-- <v-app> -->
+    <!-- sidebar --> 
+    <!-- <v-main> -->
+        <router-view/>
+    <!-- </v-main> -->
+  <!-- </v-app> -->
 </template>
 
 <script>

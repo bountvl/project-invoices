@@ -1,6 +1,6 @@
 <template>
     
-<aside class="w-60 bg h-full fixed z-[10]" aria-label="Sidebar">
+<aside class="w-60 bg h-full fixed z-[111]" aria-label="Sidebar">
    <div class="overflow-y-auto">
          <div class="flex justify-center pb-2">
           <img src="@/assets/Digital.png" class="w-3/6" alt="" />
@@ -99,7 +99,7 @@
    </div>
 </aside>
 <!-- head -->
-<div class="head  pl-60 w-full">
+<div class="head  pl-60 w-full z-[110]">
     <div class=" grid grid-cols-3 py-3 px-4">
       <div class=""></div>
       <div class="text-center inline-flex items-center search">
@@ -124,7 +124,7 @@
           </button>
 
           <!-- Dropdown menu -->
-          <div id="dropdownDivider" class="hidden z-50 w-64 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+          <div id="dropdownDivider" class="zz-index hidden relative  w-64 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
               <ul class="py-1 text-sm text-black  dark:text-gray-200" aria-labelledby="dropdownDividerButton">
                
                 <li>
@@ -206,6 +206,10 @@ export default {
    }
    .search input:focus ~ .hidd{
     display: none;
+   }
+   .zz-index {
+    position: relative;
+    z-index: 50;
    }
 
 </style>
