@@ -33,7 +33,9 @@
         </div>
 
         <!-- table -->
-        <CustomersTableVue/>
+        <div class="CustomersTableVue">
+            <CustomersTableVue/>
+        </div>
     </div>
     <!-- end -->
 </template>
