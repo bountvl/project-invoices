@@ -81,7 +81,7 @@ export default {
         Password: '',
 
         user:'ກາລຸນາປ້ອນອືເມລຜູ້ໃຊ້ກ່ອນ...!',
-        pass:'ກາລຸນາປ້ອນລະຫັດຢ່າງນ້ອຍ 6 ຕົວ...!',
+        pass:'ກາລຸນາປ້ອນລະຫັດຢ່າງນ້ອຍ 4 ຕົວ...!',
         v$: useVuelidate(),
         chack:null
         
@@ -111,7 +111,7 @@ export default {
                 router.push({name:"home"});
               }
             }).catch(error=>{
-              alert('ຂ້ມູນບໍຖືກຕ້ອງ', error)
+              alert('ຂ້ມູນບໍຖືກຕ້ອງ')
               console.log(error);
               })
         }
