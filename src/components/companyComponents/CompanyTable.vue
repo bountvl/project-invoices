@@ -13,7 +13,7 @@
             </template>
           </div>
         </template>
-        <template v-else-if="column.dataIndex === 'operation'">
+        <!-- <template v-else-if="column.dataIndex === 'operation'">
           <div class="editable-row-operations">
             <span v-if="editableData[record.key]">
               <a-typography-link @click="save(record.key)">Save</a-typography-link>
@@ -25,12 +25,12 @@
               <a @click="edit(record.key)">Edit</a>
             </span>
           </div>
-        </template>
+        </template> -->
       </template>
     </a-table>
   </template>
   <script>
-  import { cloneDeep } from 'lodash-es';
+  // import { cloneDeep } from 'lodash-es';
   import { defineComponent, reactive, ref } from 'vue';
   const columns = [{
     title: 'ລຳດັບ',
@@ -58,43 +58,46 @@
     title: 'ແກ້ໄຂລ່າສຸດ',
     dataIndex: 'address',
   }, {
-    title: 'operation',
+    title: 'ການປະຕິບັດ',
     dataIndex: 'operation',
   }];
   const data = [];
-  for (let i = 1; i <= 100; i++) {
-    data.push({
-      key: i.toString(),
-      no:`${i}`,
-      name: `Edrward ${i}`,
-      age: 32,
-      address: `London Park no. ${i}`,
-    });
-  }
+  // for (let i = 1; i <= 100; i++) {
+  //   data.push({
+  //     key: i.toString(),
+  //     no:`${i}`,
+  //     name: `Edrward ${i}`,
+  //     age: 32,
+  //     address: `London Park no. ${i}`,
+  //   });
+  // }
   export default defineComponent({
     setup() {
       const dataSource = ref(data);
       const editableData = reactive({});
-      const edit = key => {
-        editableData[key] = cloneDeep(dataSource.value.filter(item => key === item.key)[0]);
-      };
-      const save = key => {
-        Object.assign(dataSource.value.filter(item => key === item.key)[0], editableData[key]);
-        delete editableData[key];
-      };
-      const cancel = key => {
-        delete editableData[key];
-      };
+      // const edit = key => {
+      //   editableData[key] = cloneDeep(dataSource.value.filter(item => key === item.key)[0]);
+      // };
+      // const save = key => {
+      //   Object.assign(dataSource.value.filter(item => key === item.key)[0], editableData[key]);
+      //   delete editableData[key];
+      // };
+      // const cancel = key => {
+      //   delete editableData[key];
+      // };
       return {
         dataSource,
         columns,
         editingKey: '',
         editableData,
-        edit,
-        save,
-        cancel,
+        // edit,
+        // save,
+        // cancel,
       };
     },
+    methods:{
+      
+    }
   });
   </script>
   <style scoped>

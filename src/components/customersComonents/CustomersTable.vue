@@ -1,5 +1,5 @@
 <template>
-    <a-table style="z-index: 0;"
+    <a-table
       :columns="columns"
       :row-key="record => record.login.uuid"
       :data-source="dataSource"

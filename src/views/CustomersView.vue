@@ -33,7 +33,7 @@
         </div>
 
         <!-- table -->
-        <div class="CustomersTableVue">
+        <div class="CustomersTableVue py-5">
             <CustomersTableVue/>
         </div>
     </div>
