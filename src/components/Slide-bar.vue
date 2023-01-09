@@ -7,7 +7,7 @@
          </div>
       <ul class="">
          <li>
-          <router-link to="/home" class="text-hover pl-6 flex items-center p-2  hover:bg-gray-100">
+          <router-link to="/home"  class="text-hover pl-6 flex items-center p-2  hover:bg-gray-100">
             <svg className="w-6 h-6" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" /></svg>
                <!-- <span class="ml-3">Dashboard</span> -->
             <span class="ml-4">ໜ້າຫຼັກ</span>
@@ -81,7 +81,7 @@
           </router-link>
          </li>
          <li class="pb-5">
-          <router-link to="/about" class="text-hover pl-6 flex items-center text-white p-2  font-normal hover:bg-gray-100 ">
+          <router-link to="/user" class="text-hover pl-6 flex items-center text-white p-2  font-normal hover:bg-gray-100 ">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd"></path></svg>
             <span class="ml-4">ຜູ້ນຳໃຊ້</span>
           </router-link>
@@ -124,7 +124,7 @@
           </button>
 
           <!-- Dropdown menu -->
-          <div id="dropdownDivider" class="zz-index hidden relative  w-64 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+          <div id="dropdownDivider" class="z-index hidden relative  w-64 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
               <ul class="py-1 text-sm text-black  dark:text-gray-200" aria-labelledby="dropdownDividerButton">
                
                 <li>
@@ -206,10 +206,6 @@ export default {
    }
    .search input:focus ~ .hidd{
     display: none;
-   }
-   .zz-index {
-    position: relative;
-    z-index: 50;
    }
 
 </style>
