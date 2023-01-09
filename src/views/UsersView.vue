@@ -34,7 +34,7 @@
 
         <!-- table -->
         <div class="CustomersTableVue py-5">
-            <CustomersTableVue/>
+            <UsersTableVue/>
         </div>
     </div>
     <!-- end -->
@@ -43,7 +43,7 @@
 <script>
 // @ is an alias to /src
 import Slidebar from '@/components/Slide-bar.vue';
-import CustomersTableVue from '@/components/customersComonents/CustomersTable.vue';
+import UsersTableVue from '@/components/usersComponents/UsersTable.vue';
 import AddCustomersVue from '@/components/customersComonents/AddCustomers.vue';
 // function readURL(input) {
 // if (input.files && input.files[0]) {
@@ -60,13 +60,13 @@ export default {
   name: 'HomeView',
   components: {
     Slidebar,
-    CustomersTableVue,
-    AddCustomersVue
-    
+    UsersTableVue,
+    AddCustomersVue,
+
   },
   data() {
     return { 
-        logo: ''
+        logo: '',
     }
 },
 mounted() {
@@ -81,10 +81,12 @@ mounted() {
     }
 },
 methods:{
-    getLogo(event){
-        close.log(event.target.value);
-    }
 }
+// methods:{
+//     getLogo(event){
+//         close.log(event.target.value);
+//     }
+// }
 }
 </script>
 <style scoped>
