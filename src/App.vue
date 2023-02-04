@@ -1,10 +1,7 @@
 <template>
-  <!-- <v-app> -->
-    <!-- sidebar --> 
-    <!-- <v-main> -->
+      <div class="body">
         <router-view/>
-    <!-- </v-main> -->
-  <!-- </v-app> -->
+      </div>
 </template>
 
 <script>
@@ -18,7 +15,18 @@ export default {
 }
 </script>
 <style>
-body{
-background-color: #f6f1f1bb;
+.body{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: scroll;
+ background-color: #f4eaea9d;
+}
+.body::-webkit-scrollbar{
+    width: 8px;
+    background-color: rgb(204, 210, 210);
+    /* z-index: 100; */
+    /* display: none; */
 }
 </style>
