@@ -61,6 +61,14 @@ const routes = [
     meta:{
       requiresAuth:true
     }
+  },  
+  {
+    path: '/quotation',
+    name: 'quotation',
+    component: () => import('../views/QuotationsView.vue'),
+    meta:{
+      requiresAuth:true
+    }
   }
 ]
 

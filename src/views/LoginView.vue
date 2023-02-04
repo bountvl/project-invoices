@@ -5,7 +5,7 @@
         <div class="img flex justify-center pb-5">
           <img src="@/assets/Digital.png" alt="" style="width:50%" >
         </div>
-        <div class="body px-10 pb-28">
+        <div class=" px-10 pb-28">
           <!-- <form action=""> -->
             <div class="pb-5">
               <div class="pb-2">
@@ -59,9 +59,19 @@
 
           <div class="text_alert" >
             <div class="p-2">
-              <a-alert message="Info Text" type="error" close-text="Close Now" style="height: 60px; color: brown;" />
             </div>
+            <a-alert
+              v-if="visible"
+              message="ບັນທືກບໍ່ສຳເລັດ ກວດຄືນອີເມລຂອງທ່ານອືກຄັ້ງ! "
+              type="error"
+              closable
+              banner
+              :after-close="handleClose"
+              :style="{fontSize:'18px',backgroundColor:'rgb(255, 170, 170, 0.6)', 
+              padding:'20px 30px 20px 10px', fontWeight: '400'}"
+            />
           </div>
+          
 
   </div>
   </template>
@@ -70,13 +80,28 @@ import { useVuelidate } from '@vuelidate/core'
 import { required, minLength, email} from '@vuelidate/validators'
 import axios from 'axios'
 import router from '@/router'
+import { defineComponent, ref } from 'vue';
 // import { response } from 'express'
 // import { ref } from 'vue'
 /* eslint-disable */
-export default {
+export default defineComponent({
+  setup() {
+    const visible = ref(false);
 
+    const handleClose = () => {
+      visible.value = false;
+    };
+
+    return {
+    v$: useVuelidate(),
+      visible,
+      handleClose,
+    };
+  },
   data () {
     return {
+    renderComponent: true,
+    
         Email: '',
         Password: '',
 
@@ -111,13 +136,14 @@ export default {
                 router.push({name:"home"});
               }
             }).catch(error=>{
-              alert('ຂ້ມູນບໍຖືກຕ້ອງ')
+              // alert('ຂ້ມູນບໍຖືກຕ້ອງ')
+            this.visible= true;
               console.log(error);
               })
         }
       }
     }
-}
+})
   </script>
   
   <style lang="scss" scoped>

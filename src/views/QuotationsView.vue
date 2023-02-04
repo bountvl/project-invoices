@@ -1,12 +1,12 @@
 <template>
     <!-- Slidebar -->
-    <Slidebar/>
+        <Slidebar/>
     <!-- end -->
     <!-- main -->
     <div class="home pl-64 pr-4 pt-20 ">
         <div class="tools pt-5 flex justify-between">
             <div class=" ">
-                <form action="" class="flex gap-3"> 
+                <form action="" class="flex gap-3">
                     <input type="date" name="" class="bg rounded-xl text-white " id=""/>
                     <input type="date" name="" class="bg rounded-xl text-white " id=""/>
                     <button type="submit" class="button bg rounded-xl px-3">
@@ -26,49 +26,27 @@
                     </button>
 
                     <!-- Main modal -->
-                    <AddCustomersVue/>
-                    
 
             </div>
         </div>
 
         <!-- table -->
-        <div class="CustomersTableVue py-5">
-            <CustomersTableVue/>
+        <div class="py-5">
+            <QuotationsTable/>
         </div>
+
     </div>
     <!-- end -->
 </template>
-
 <script>
-// @ is an alias to /src
 import Slidebar from '@/components/Slide-bar.vue';
-import CustomersTableVue from '@/components/customersComonents/CustomersTable.vue';
-import AddCustomersVue from '@/components/customersComonents/AddCustomers.vue';
-// function readURL(input) {
-// if (input.files && input.files[0]) {
-// var reader = new FileReader();
-
-// reader.onload = function (e) {
-// $('#blah').attr('src', e.target.result);
-// }
-
-// reader.readAsDataURL(input.files[0]);
-// }
-// };
-export default {
-  name: 'HomeView',
-  components: {
+import QuotationsTable from '@/components/quotationsComponents/QuotationsTable.vue';
+export default{
+    components: {
     Slidebar,
-    CustomersTableVue,
-    AddCustomersVue
+    QuotationsTable
     
   },
-  data() {
-    return { 
-        logo: ''
-    }
-},
 mounted() {
     if (localStorage.getItem('reloaded')) {
         // The page was just reloaded. Clear the value from local storage
@@ -80,11 +58,6 @@ mounted() {
         location.reload();
     }
 },
-methods:{
-    getLogo(event){
-        close.log(event.target.value);
-    }
-}
 }
 </script>
 <style scoped>
