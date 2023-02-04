@@ -1,5 +1,5 @@
 <template>
-        <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+        <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-[55] hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
                         <div class="relative w-full h-full max-w-md md:h-auto">
                             <!-- Modal content -->
                             <div class="relative bg-white rounded-2xl shadow dark:bg-gray-700">
@@ -31,7 +31,7 @@
                                             <label for="" class="block border-none mb-1 font-medium text-gray-900 dark:text-white"> ໂລໂກ້</label>
                                             <div class="flex items-center space-x-6 bg-gray-200 rounded-lg">
                                                 <div class="shrink-0  rounded-full"> 
-                                                    <img class="h-20 w-20 object-cover rounded-full text-red-700 flex alt:items-center" v-bind:src="imagePreview" alt="" />
+                                                    <img class="h-20 w-20 object-cover rounded-full text-red-700 flex alt:items-center" v-bind:src="imagePreview" alt="&nbsp;" />
                                                 </div>
                                                 <label class="block">
                                                     <span class="sr-only">Choose profile photo</span>
@@ -41,8 +41,8 @@
                                                     file:text-sm file:font-semibold
                                                     file:bg-violet-50 file:text-violet-700
                                                     hover:file:bg-violet-100
-                                                    "
-                                                    @change="onFileChange" required/>
+                                                    " 
+                                                    @change="onFileChange" />
                                                 </label>
                                             </div>
                                                 <!-- required -->
@@ -55,7 +55,7 @@
                                         </div>
                                         <div>
                                             <label for="number" class="block border-none mb-1 font-medium text-gray-900 dark:text-white"> ເບີໂທ</label>
-                                            <input type="text" name="number" id="number" class="bg-gray-200 border-none text-gray-900  rounded-lg focus:ring-blue-500 
+                                            <input type="text" name="" id="" class="bg-gray-200 border-none text-gray-900  rounded-lg focus:ring-blue-500 
                                             focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" 
                                             placeholder="........."
                                                 v-model="Tel" :class="v$.Tel.$error === true ? 'text-fields-error' : 'text-fields'" />
@@ -112,6 +112,7 @@
 <script>
 import { useVuelidate } from '@vuelidate/core'
 import { required, minLength, email} from '@vuelidate/validators'
+import axios from 'axios'
 export default{
     setup () {
     return { v$: useVuelidate() }
@@ -123,7 +124,8 @@ export default{
         Tel:'',
         Email:'',
         Addraces:'',
-        imagePreview: null
+        imagePreview: null,
+        Img:null
     }
   },
   validations () {
@@ -137,40 +139,48 @@ export default{
   },
     methods: {
         onFileChange(event){
+            this.Img = event.target.files[0];
+            this.ImgLogo = event.target.files[0];
+            console.log(this.Img);
+            console.log(this.ImgLogo);
+            let reader  = new FileReader();
+            reader.addEventListener("load", function () {
 
-this.ImgLogo = event.target.files[0];
+                // this.showPreview = true;
+                this.imagePreview = reader.result;
 
-console.log(this.ImgLogo);
+            }.bind(this), false);
 
- let reader  = new FileReader();
+            if(this.Img){
+                if ( /\.(jpe?g|png|gif)$/i.test( this.Img.name ) ) {
+                    console.log("here");
+                    reader.readAsDataURL( this.Img );
 
-reader.addEventListener("load", function () {
-
-    // this.showPreview = true;
-
-    this.imagePreview = reader.result;
-
-}.bind(this), false);
-
-if(this.ImgLogo){
-
-
-
-    if ( /\.(jpe?g|png|gif)$/i.test( this.ImgLogo.name ) ) {
-
-    console.log("here");
-
-
-
-    reader.readAsDataURL( this.ImgLogo );
-
-    }
-
-}
-
-},
-      submit(){
+                }
+            }
+        },
+        async submit(){
         this.v$.$touch();
+        if(this.v$.CompanyName.$errors == false && this.v$.Tel.$errors == false && this.v$.Email.$errors == false && 
+            this.v$.Addraces.$errors == false && this.v$.ImgLogo.$errors == false){
+ 
+            let formData = new FormData();
+            formData.append('company_name',this.CompanyName);
+            formData.append('phone',this.Tel);
+            formData.append('email',this.Email);
+            formData.append('logo',this.ImgLogo);
+            formData.append('address', this.Addraces);
+
+            await axios.post('customer', formData).then(response=>{
+              console.log(response.data, 'ok');
+                window.location.reload();
+          }).catch(error=>{
+            console.log(error);
+            // this.visible= true;
+            // this.AddError='ສະໝັກຜູ້ໃຊ້ລົ້ມເຫຼວ !'
+            })
+        }
+
       }
     }
  }
