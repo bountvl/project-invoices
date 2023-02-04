@@ -26,14 +26,14 @@
                     </button>
 
                     <!-- Main modal -->
-                    <AddCustomersVue/>
+                    <AddUserVue/>
                     
 
             </div>
         </div>
 
         <!-- table -->
-        <div class="CustomersTableVue py-5">
+        <div class="CustomersTableVue py-5 pr-2">
             <UsersTableVue/>
         </div>
     </div>
@@ -44,24 +44,14 @@
 // @ is an alias to /src
 import Slidebar from '@/components/Slide-bar.vue';
 import UsersTableVue from '@/components/usersComponents/UsersTable.vue';
-import AddCustomersVue from '@/components/customersComonents/AddCustomers.vue';
-// function readURL(input) {
-// if (input.files && input.files[0]) {
-// var reader = new FileReader();
+import AddUserVue from '@/components/usersComponents/AddUser.vue';
 
-// reader.onload = function (e) {
-// $('#blah').attr('src', e.target.result);
-// }
-
-// reader.readAsDataURL(input.files[0]);
-// }
-// };
 export default {
   name: 'HomeView',
   components: {
     Slidebar,
     UsersTableVue,
-    AddCustomersVue,
+    AddUserVue
 
   },
   data() {
@@ -101,4 +91,5 @@ methods:{
 .border{
     border: solid 1px rgb(14 165 233) ;
 }
+
 </style>
