@@ -1,6 +1,6 @@
 <template>
     
-<aside class="w-60 bg h-full fixed z-[111]" aria-label="Sidebar">
+<aside class="w-60 bg h-full fixed z-[51]" aria-label="Sidebar">
    <div class="overflow-y-auto">
          <div class="flex justify-center pb-2">
           <img src="@/assets/Digital.png" class="w-3/6" alt="" />
@@ -32,7 +32,7 @@
           </router-link>
          </li>
          <li>
-          <router-link to="/about" class="text-hover pl-6 flex items-center text-white p-2  font-normal hover:bg-gray-100 ">
+          <router-link to="/quotation" class="text-hover pl-6 flex items-center text-white p-2  font-normal hover:bg-gray-100 ">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path></svg>
             <span class="ml-4">ໃບສະເໜີລາຄາ</span>
           </router-link>
@@ -99,7 +99,7 @@
    </div>
 </aside>
 <!-- head -->
-<div class="head  pl-60 w-full z-[110]">
+<div class="head  pl-60 w-full z-[50]">
     <div class=" grid grid-cols-3 py-3 px-4">
       <div class=""></div>
       <div class="text-center inline-flex items-center search">
@@ -118,7 +118,7 @@
         </div> 
         <div class="flex">
           <button id="dropdownDividerButton" data-dropdown-toggle="dropdownDivider" class="dropdown text-sm px-4 text-center inline-flex items-center hover:font-medium" type="button">
-            <img src="@/assets/boun.jpg" class="w-10 h-10 rounded-full " alt=""> 
+            <img src="@/assets/iv_user.png" class="w-10 h-10 rounded-full " alt=""> 
             <span class="pl-1">Khampasong </span>
             <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
